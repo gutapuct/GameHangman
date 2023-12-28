@@ -1,6 +1,7 @@
 import asyncio
 import logging
 import sys
+import os
 
 from aiogram import Bot, Dispatcher, types, F
 from aiogram.enums import ParseMode
@@ -9,8 +10,10 @@ from aiogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
 from aiogram.utils.markdown import hbold
 from game import createGame, Game
 
+TOKEN = os.environ.get('TELEGRAM_GAMEHANGMAN_TOKEN3')
 
-TOKEN = "YOUR_TELEGRAM_TOKEN"
+if TOKEN is None:
+    raise Exception("Телеграм Токен не найден. Положите токен в Environments по имени TELEGRAM_GAMEHANGMAN_TOKEN3")
 
 dp = Dispatcher()
 

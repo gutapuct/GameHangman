@@ -10,7 +10,7 @@ from aiogram.utils.markdown import hbold
 from game import createGame, Game
 
 
-TOKEN = "6909740761:AAF8_0xqp2R6mmXZobdEuD-s4yhgYQwfg8g"
+TOKEN = "YOUR_TELEGRAM_TOKEN"
 
 dp = Dispatcher()
 

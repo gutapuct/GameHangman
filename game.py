@@ -3,8 +3,8 @@ from words import words
 from aiogram.types import FSInputFile
 
 class Game:
-    def __init__(self, word) -> None:
-        self.word = word
+    def __init__(self) -> None:
+        self.word = random.choice(words)
         self.successes = list()
         self.failures = list()
 
@@ -39,8 +39,17 @@ class Game:
 
         return " ".join(result)
     
-def createGame() -> Game:
-    randomWord = random.choice(words)
-    print(f'word: {randomWord}')
-    return Game(randomWord)
+    def checkLetter(self, letter) -> None:
+        if (letter in self.word):
+            self.successes.append(letter)
+        else:
+            self.failures.append(letter)
 
+    def finished(self) -> bool:
+        for char in list(self.word):
+            if (char not in self.successes):
+                return False
+        return True
+
+    def failed(self) -> bool:
+        return len(self.failures) >= 6    
